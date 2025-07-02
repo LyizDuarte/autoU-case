@@ -168,8 +168,8 @@ uvicorn api.index:app --host 0.0.0.0 --port $PORT
 
 1. Acesse [railway.app](https://railway.app)
 2. Crie um novo projeto e conecte seu repositório GitHub
-3. O Railway detectará automaticamente o `Procfile` e fará o deploy
-4. O backend estará disponível na URL fornecida pelo Railway
+3. O Railway detectará automaticamente o `nixpacks.toml` e fará o deploy
+4. O backend estará disponível na URL fornecida pelo Railway: https://autou-case-production.up.railway.app
 
 ## 🧪 Testando a Aplicação
 
