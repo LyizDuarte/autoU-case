@@ -14,7 +14,7 @@ pandas==2.2.2
 
 # Processamento de arquivos
 PyPDF2==3.0.1
-python-multipart==0.0.6
+python-multipart==0.0.9
 
 # Utilitários
 python-dotenv==1.0.0
