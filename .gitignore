@@ -1,5 +1,5 @@
 .env
-.venv
+venv
 __pycache__
 .DS_Store
 .env.local
@@ -9,3 +9,4 @@ __pycache__
 .env.development
 .env.test
 .env.production
+README.md
