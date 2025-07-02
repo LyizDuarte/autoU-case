@@ -14,14 +14,14 @@ Automatizar a leitura e classificação de emails, sugerindo classificações e 
 - **📊 Categorização**: Produtivo, Improdutivo ou Neutro
 - **💬 Respostas Automáticas**: Respostas institucionais por template
 - **🎨 Interface Moderna**: Design neumórfico responsivo
-- **☁️ Deploy na Nuvem**: Compatível com Vercel
+- **☁️ Deploy na Nuvem**: Compatível com Railway
 
 ## 🚀 Tecnologias
 
 - **Backend**: FastAPI (Python)
 - **Frontend**: HTML5, CSS3, JavaScript
 - **NLP**: NLTK, TextBlob
-- **Deploy**: Vercel
+- **Deploy**: Railway
 
 ## 📋 Pré-requisitos
 
@@ -65,7 +65,9 @@ pip install -r requirements.txt
 ```bash
 python api/index.py
 ```
+
 ### Caso o comando acima retorne erros, tente esse:
+
 ```bash
 python -m api.index
 ```
@@ -144,7 +146,7 @@ Emails que não necessitam de uma ação imediata:
 
 Emails que não se encaixam claramente nas categorias acima.
 
-## 🚀 Deploy na Vercel
+## 🚀 Deploy no Railway
 
 ### 1. Prepare o projeto
 
@@ -154,14 +156,20 @@ git add .
 git commit -m "Preparando para deploy"
 ```
 
-### 2. Conecte ao Vercel
+### 2. Crie o arquivo Procfile
 
-1. Acesse [vercel.com](https://vercel.com)
-2. Conecte seu repositório GitHub
+Na raiz do projeto, crie um arquivo chamado `Procfile` (sem extensão) com o seguinte conteúdo:
 
-### 3. Deploy automático
+```
+uvicorn api.index:app --host 0.0.0.0 --port $PORT
+```
 
-O Vercel detectará automaticamente o `vercel.json` e fará o deploy.
+### 3. Deploy no Railway
+
+1. Acesse [railway.app](https://railway.app)
+2. Crie um novo projeto e conecte seu repositório GitHub
+3. O Railway detectará automaticamente o `Procfile` e fará o deploy
+4. O backend estará disponível na URL fornecida pelo Railway
 
 ## 🧪 Testando a Aplicação
 
@@ -219,8 +227,8 @@ case-autoU/
 ├── public/
 │   └── index.html        # Interface web
 ├── requirements.txt      # Dependências Python
-├── vercel.json          # Configuração Vercel
-└── README.md            # Este arquivo
+├── Procfile              # Comando de start para Railway
+└── README.md             # Este arquivo
 ```
 
 ## 🤝 Contribuindo
