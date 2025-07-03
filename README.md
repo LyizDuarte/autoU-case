@@ -156,12 +156,21 @@ git add .
 git commit -m "Preparando para deploy"
 ```
 
-### 2. Crie o arquivo Procfile
+### 2. Crie o arquivo nixpacks.toml
 
-Na raiz do projeto, crie um arquivo chamado `Procfile` (sem extensão) com o seguinte conteúdo:
+Na raiz do projeto, crie um arquivo chamado `nixpacks.toml` com o seguinte conteúdo:
 
 ```
-uvicorn api.index:app --host 0.0.0.0 --port $PORT
+[phases.setup]
+nixPkgs = ["python311Full", "python311Packages.pip"]
+
+[phases.build]
+cmds = [
+  "pip install -r requirements.txt"
+]
+
+[start]
+cmd = "uvicorn api.index:app --host 0.0.0.0 --port $PORT"
 ```
 
 ### 3. Deploy no Railway
@@ -227,7 +236,7 @@ case-autoU/
 ├── public/
 │   └── index.html        # Interface web
 ├── requirements.txt      # Dependências Python
-├── Procfile              # Comando de start para Railway
+├── nixpacks.toml         # Comando de start para Railway
 └── README.md             # Este arquivo
 ```
 
